@@ -1,6 +1,8 @@
 package com.datamaking.spring.controller;
 
 import com.datamaking.spring.entity.Book;
+import com.datamaking.spring.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,14 +13,12 @@ import java.util.List;
 @RestController
 public class BookController {
 
+    @Autowired
+    private BookService bookService;
+
     @RequestMapping(value = "/books", method = RequestMethod.GET)
     public List<Book> getBooks(){
-        List<Book> books = Arrays.asList(
-                new Book(1, "2 States", "Description of 2 States", 2007,"Fiction"),
-                new Book(2, "Harry Potter", "Description of Harry Potter", 2003,"Fiction"),
-                new Book(3, "The Air", "Description of The Air", 2015,"NonFiction")
-        );
 
-        return books;
+        return bookService.getBooks();
     }
 }

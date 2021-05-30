@@ -1,11 +1,22 @@
 package com.datamaking.spring.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "book")
 public class Book {
+    @Id
     private Integer id;
     private String name;
     private String desc;
     private Integer yearOfPublication;
     private String bookType;
+
+    public Book() {
+
+    }
 
     public Book(Integer id, String name, String desc, Integer yearOfPublication, String bookType) {
         this.id = id;
