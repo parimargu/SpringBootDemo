@@ -35,4 +35,9 @@ public class BookController {
     public Book updateBook(@RequestBody Book book){
         return bookService.updateBook(book);
     }
+
+    @RequestMapping(value = "books/{bookId}", method = RequestMethod.DELETE)
+    public String deleteBookById(@PathVariable Integer bookId) {
+        return bookService.deleteBookById(bookId);
+    }
 }
