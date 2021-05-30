@@ -1,15 +1,15 @@
 package com.datamaking.spring.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
 public class Book {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @Column(name = "description")
     private String desc;
     private Integer yearOfPublication;
     private String bookType;

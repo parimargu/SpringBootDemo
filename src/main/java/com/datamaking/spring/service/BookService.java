@@ -28,4 +28,14 @@ public class BookService {
 
         return books;
     }
+
+    public Book createBook(Book book){
+
+        return bookRepository.save(book);
+    }
+
+    public Book getBookById(Integer bookId){
+        Book book = bookRepository.findById(bookId).get();
+        return book;
+    }
 }
