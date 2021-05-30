@@ -14,7 +14,7 @@ public class BookService {
     private BookRepository bookRepository;
 
     // Get/Select
-    public List<Book> getBooks(){
+    public List<Book> getBooks(Integer yop){
         /*List<Book> books = Arrays.asList(
                 new Book(1, "2 States", "Description of 2 States", 2007,"Fiction"),
                 new Book(2, "Harry Potter", "Description of Harry Potter", 2003,"Fiction"),
@@ -23,8 +23,14 @@ public class BookService {
 
         List<Book> books = new ArrayList<>();
 
-        //bookRepository.findAll().forEach(book -> books.add(book));
-        bookRepository.findAll().forEach(book -> {books.add(book);});
+        if (yop == null) {
+            //bookRepository.findAll().forEach(book -> books.add(book));
+            bookRepository.findAll().forEach(book -> {
+                books.add(book);
+            });
+        } else {
+            return bookRepository.findAllByYearOfPublication(yop);
+        }
 
         return books;
     }

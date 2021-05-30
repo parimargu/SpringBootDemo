@@ -15,9 +15,9 @@ public class BookController {
     private BookService bookService;
 
     @RequestMapping(value = "/books", method = RequestMethod.GET)
-    public List<Book> getBooks(){
+    public List<Book> getBooks(@RequestParam(value = "yearOfPublication", required = false) Integer yop){
 
-        return bookService.getBooks();
+        return bookService.getBooks(yop);
     }
 
     @RequestMapping(value = "/books", method = RequestMethod.POST)
