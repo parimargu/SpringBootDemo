@@ -30,4 +30,9 @@ public class BookController {
         Book book = bookService.getBookById(bookId);
         return book;
     }
+
+    @RequestMapping(value = "books", method = RequestMethod.PUT)
+    public Book updateBook(@RequestBody Book book){
+        return bookService.updateBook(book);
+    }
 }

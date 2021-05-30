@@ -38,4 +38,8 @@ public class BookService {
         Book book = bookRepository.findById(bookId).get();
         return book;
     }
+
+    public Book updateBook(Book book) {
+        return bookRepository.save(book);
+    }
 }
